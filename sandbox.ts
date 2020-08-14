@@ -1,9 +1,20 @@
-const character = 'becca';
+let character = 'becca';
 
-console.log(character);
+let age = 20;
 
-const inputs = document.querySelectorAll('input');
+let isFemale = false;
 
-console.log(inputs);
+// character = 20;
+character = 'Rebecca';
 
-inputs.forEach(input => console.log(input));
+// age = '231';
+age = 21;
+
+// isFemale = 'yes';
+isFemale = true;
+
+const sayHi = (name: string) => {
+  return `Hi, I'm ${ name }`
+}
+
+console.log(sayHi(character));
