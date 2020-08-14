@@ -151,3 +151,55 @@ becca1 = {
   skill: ['front-end development', 'sleep']
 }
 ```
+
+5. Any（谨慎使用）
+```js
+// Any
+let dontKnow: any;
+dontKnow = true;
+dontKnow = 'becca';
+dontKnow = 12;
+dontKnow = [12, 2, 2];
+dontKnow = { name: 'woo' };
+
+let mixed: any[] = [];
+mixed.push('becca');
+mixed.push(28);
+mixed.push(false);
+mixed.push({});
+
+let stranger: {
+  name: any,
+  age: any
+}
+
+stranger = {
+  name: 'becca',
+  age: 22
+}
+console.log(stranger);
+
+stranger = {
+  name: 22,
+  age: 'becca'
+}
+console.log(stranger);
+```
+
+6. TypeScriptCompile 配置
+
+![tsc-init](/assets/tsc-init.png)
+
+项目目录下增加 ```tsconfig.json``` 配置文件。
+- 整理项目文件，新建 ```public``` 文件夹，放置部署文件如 ```index.html``` ```sandbox.js``` ```style.css``` 等
+- 新建 ```src``` 文件夹，放置源码文件如 ```sandbox.ts```
+- 目标：改变 ts 编译规则，监听 ```src``` 文件夹中的所有 ```.ts``` 文件并将其编译输出到 ```public``` 文件夹中
+  - 修改 ```tsconfig.json``` 文件中的配置
+  
+  ![config1](./assets/config1.png)
+
+  文件最后添加：
+
+  ![config2](./assets/config2.png)
+
+- 现在只需在命令行中执行命令 ```$ tsc -w``` 就可以自动监听 src 文件夹中所有的 ```.ts``` 文件并编译成 ```.js``` 文件到 ```public``` 文件夹中了。
